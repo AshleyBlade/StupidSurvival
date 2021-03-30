@@ -28,7 +28,7 @@ public final class Main extends JavaPlugin {
         manager.registerEvents(new IronGolemHitEvent(), this);
         manager.registerEvents(new IlayEvent(), this);
         // manager.registerEvents(new TreeFellerClone(), this); // <- TreeFeller shit
-        manager.registerEvents(new CowDeathEvent(), this);
+        // manager.registerEvents(new CowDeathEvent(), this);
     }
 
     @Override

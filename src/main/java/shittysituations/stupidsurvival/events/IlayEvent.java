@@ -28,9 +28,9 @@ public class IlayEvent implements Listener {
 
         Player player = event.getPlayer(); // store player as a Player
 
-        IlayMob jew = new IlayMob(player.getLocation()); // store mob as an IlayMob
+        IlayMob ilay = new IlayMob(player.getLocation()); // store mob as an IlayMob
         WorldServer world = ((CraftWorld) player.getWorld()).getHandle(); // Get the server's world
-        world.addEntity(jew); // add IlayMob to world
+        world.addEntity(ilay); // add IlayMob to world
 
         Collections.addAll(stolenItems, event.getPlayer().getInventory().getContents()); // Add all items to an ArrayList
 

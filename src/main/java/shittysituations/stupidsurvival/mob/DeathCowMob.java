@@ -19,8 +19,8 @@ public class DeathCowMob extends EntityCow {
         this.setHealth(100);
         this.setOnFire(1);
 
-        this.goalSelector.a(0, new PathfinderGoalChaseEntity());
-        this.goalSelector.a(0, new PathfinderGoalMeleeAttack())
+        /*this.goalSelector.a(0, new PathfinderGoalChaseEntity());
+        this.goalSelector.a(0, new PathfinderGoalMeleeAttack())*/
     }
 
 
