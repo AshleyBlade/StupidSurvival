@@ -1,0 +1,12 @@
+name: StupidSurvival
+version: ${project.version}
+main: shittysituations.stupidsurvival.Main
+api-version: 1.16
+prefix: Stupid Survival
+authors: [ AshleyDavage ]
+description: A plugin designed to be used alongside Hardcore more.
+website: https://github.com/AshleyBlade
+commands:
+  fulltime:
+    description: Gets the server's full time - Testing
+    usage: /fulltime
