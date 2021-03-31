@@ -17,7 +17,7 @@ public class CreeperExplodeEvent implements Listener {
         if(!(event.getEntity().getType().equals(EntityType.CREEPER))) return;
 
         Random random = new Random();
-        if(!(random.nextInt(50) + 1 == 1)) return;
+        if(!(random.nextInt(20) + 1 == 1)) return;
         Entity creeper = event.getEntity();
         Location creeperLoc = creeper.getLocation();
         World world = creeperLoc.getWorld();

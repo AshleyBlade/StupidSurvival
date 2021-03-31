@@ -19,7 +19,7 @@ public class PathfinderGoalChaseEntity extends PathfinderGoal {
     private double y;
     private double z;
 
-    // Custom chicken -> Finds target entity (Hostile mob) -> runs to them
+    // Custom entity -> Finds target (set by targetSelector) -> pathfinds to target -> runs code when at target
 
     public PathfinderGoalChaseEntity(EntityInsentient entity, double speed, float distance){
         this.entity = entity;
@@ -29,12 +29,10 @@ public class PathfinderGoalChaseEntity extends PathfinderGoal {
     }
 
     @Override
-    public boolean a() { // runs every tick
+    public boolean a() { // runs every tick || gets and sets the entity's target location
         // Starts pathfinding goal if it is true
         this.target = this.entity.getGoalTarget(); // Get the goal target from the entity Entity
-        if (this.target == null) // if target == null return false
-            return false;
-        else if (this.entity.getDisplayName() == null){ // it target doesn't have a displayname return false
+        if (this.target == null) {// if target == null return false
             return false;
         } else{// Follow target
 
@@ -51,22 +49,27 @@ public class PathfinderGoalChaseEntity extends PathfinderGoal {
         }
     }
 
-    public void c() { // runs after a()
+    public void c() { // runs after a() || set's the entities navigation to the target
         // navigates entity to target!
         this.entity.getNavigation().a(this.x, this.y, this.z, this.speed);
     }
 
-    public boolean b() { // runs after c()
-        // if false runs d -> if true continue navigating to target
+    public boolean b() { // runs after c() || checks if the entity is close to the target
 
+        // if false runs d -> if true continue navigating to target
         if(!(this.entity.getNavigation().m() && this.target.h(this.entity) < (double) (this.distance * this.distance))) return false;
 
-        // run function here
-
-        return true;
+        return true; // runs a > c > b again
     }
 
-    public void d() { // runs if b = false
+    // Run custom function here
+    public void d() { // runs if b = false || if entity is close to target run this
+
+        World world = entity.getWorld().getWorld();
+        Location location = new Location(world, entity.locX(), entity.locY(), entity.locZ());
+        world.createExplosion(location, 2, true, false);
+
         this.target = null;
+        entity.die();
     }
 }

@@ -21,7 +21,7 @@ public class ChestOpenEvent implements Listener {
         if(!(event.getClickedBlock().getType() == Material.CHEST)) return; // check if the clicked block was a chest
 
         Random random = new Random(); // create new random
-        if(!(random.nextInt(30) + 1 == 1)) return; // check if the random int equals 1 -> 1 in 30
+        if(!(random.nextInt(50) + 1 == 1)) return; // check if the random int equals 1 -> 1 in 30
 
         Player player = event.getPlayer(); // store the player
         Block chest = event.getClickedBlock(); // store the chest
